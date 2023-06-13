@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-06-13T09:11:09.416Z",
+    "end": "2023-06-13T09:11:57.908Z",
+    "duration": 48492,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8af7048d-df52-43ed-9956-55b80457397e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Main File\\Dashboard.cy.js",
+      "file": "cypress\\e2e\\Main File\\Dashboard.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "df4ac88b-83ee-491c-81d9-04184432088f",
+          "title": "Admin",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Test that admin in able to login into application",
+              "fullTitle": "Admin Test that admin in able to login into application",
+              "timedOut": null,
+              "duration": 14730,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\Main File\\\\Dashboard.cy.js\"\n}",
+              "code": "const log = new _adminLogin.default();\nconst dshh = new _Dashboard.default();\nlog.logincredentials(repodata.Email, repodata.Password);",
+              "err": {},
+              "uuid": "9713896b-e8df-402b-a19a-42317836d0a5",
+              "parentUUID": "df4ac88b-83ee-491c-81d9-04184432088f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify that dashboard modules and icons are visible",
+              "fullTitle": "Admin verify that dashboard modules and icons are visible",
+              "timedOut": null,
+              "duration": 17973,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "[\n  {\n    \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n    \"value\": \"cypress\\\\e2e\\\\Main File\\\\Dashboard.cy.js\"\n  },\n  {\n    \"title\": \"cypress-mochawesome-reporter-screenshots\",\n    \"value\": [\n      [\n        \"\\\\Dashboard.cy.js\\\\Admin -- verify that dashboard modules and icons are visible (failed).png\"\n      ]\n    ]\n  }\n]",
+              "code": "const log = new _adminLogin.default();\nconst dshh = new _Dashboard.default();\nlog.logincredentials(repodata.Email, repodata.Password);\ndshh.validateallfieldsofdashboard();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[class=\"ant-typography cursor-pointer css-dev-only-do-not-override-i9o64j\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[class=\"ant-typography cursor-pointer css-dev-only-do-not-override-i9o64j\"]`, but never found it.\n    at dashboard.validateallfieldsofdashboard (webpack:///./cypress/e2e/POM/Dashboard.js:51:36)\n    at Context.eval (webpack:///./cypress/e2e/Main File/Dashboard.cy.js:26:13)",
+                "diff": null
+              },
+              "uuid": "a98ef354-bb03-4759-a08e-06f63117cbc6",
+              "parentUUID": "df4ac88b-83ee-491c-81d9-04184432088f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "verify that user is able to logout from the application",
+              "fullTitle": "Admin verify that user is able to logout from the application",
+              "timedOut": null,
+              "duration": 15534,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\Main File\\\\Dashboard.cy.js\"\n}",
+              "code": "const log = new _adminLogin.default();\nconst dashh = new _Dashboard.default();\nlog.logincredentials(repodata.Email, repodata.Password);\ndashh.logoutfromdashboard();",
+              "err": {},
+              "uuid": "9e3ffc42-6f9d-47d3-81c3-fa1d434194b8",
+              "parentUUID": "df4ac88b-83ee-491c-81d9-04184432088f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9713896b-e8df-402b-a19a-42317836d0a5",
+            "9e3ffc42-6f9d-47d3-81c3-fa1d434194b8"
+          ],
+          "failures": [
+            "a98ef354-bb03-4759-a08e-06f63117cbc6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 48237,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "custom-report",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress\\reports\\mochawesome\\.jsons",
+        "reportFilename": "custom-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "code": true,
+        "autoOpen": false,
+        "overwriteScreenshots": true,
+        "overwriteJson": false,
+        "failOnConsoleError": true,
+        "codeTheme": "agate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
