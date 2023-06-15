@@ -45,10 +45,11 @@ class dashboard {
 
     }
     validateallfieldsofdashboard() {
-      
+
+
         this.elements.dashboardlogo().should('be.visible')
         this.elements.dashboardmodule().should('be.visible').should('have.text', 'Dashboard')
-        this.elements.profilename().should('be.visible').should('have.text','John')
+        this.elements.profilename().should('be.visible').should('have.text', 'John')
         this.elements.dashbaordicon().should('be.visible')
         this.elements.influncericon().should('be.visible')
         this.elements.campaignicon().should('be.visible')
@@ -80,11 +81,14 @@ class dashboard {
         this.elements.payments().should('be.visible')
         this.elements.Notifications().should('be.visible')
 
+
+
+
     }
 
     validatedashboardicon() {
 
-       
+
         this.elements.dashbaordicon().should('be.visible')
         this.elements.dashbaordicon().should('be.visible')
         this.elements.influncericon().should('be.visible')
