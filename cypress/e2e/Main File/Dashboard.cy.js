@@ -32,5 +32,6 @@ describe('Admin', () => {
         log.logincredentials(repodata.Email, repodata.Password)
         dashh.logoutfromdashboard()
     })
+
 })
 

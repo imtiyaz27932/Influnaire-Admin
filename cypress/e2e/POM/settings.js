@@ -21,7 +21,25 @@ class adduser {
 
         mobiconclick: () => cy.get('svg.myReact-icons').eq(0),
         closebtn: () => cy.get('svg[data-icon="close"]'),
-        addbtn: () => cy.get('.ant-float-btn-content')
+        addbtn: () => cy.get('.ant-float-btn-content'),
+
+        instagram:()=> cy.get('.ant-input-number-input-wrap').eq(0),
+        facebook:()=> cy.get('.ant-input-number-input-wrap').eq(1),
+        Youtube:()=> cy.get('.ant-input-number-input-wrap').eq(2),
+        syncFrequency:()=> cy.get('.ant-input-number-input-wrap').eq(3),
+
+
+        editprofilefname:()=> cy.get('#firstName'),
+        editprofilelname:()=> cy.get('#lastName'),
+        editprofilecompanyname:()=> cy.get('#company'),
+        editprofilejob:()=> cy.get('#jobTitle'),
+        updateprofilebtn:()=> cy.get('.ant-btn')
+
+
+
+
+
+
     }
 
     // invalid = {
@@ -29,7 +47,10 @@ class adduser {
     // }
 
 
-
+    requiremsg ={
+        requriedfield1:()=> cy.get('.ant-form-item-explain-error').eq(0).should('have.text','Required field'),
+        requiredfield2:()=> cy.get('.ant-form-item-explain-error').eq(1).should('have.text','Required field'),
+    }
 
     settings(frstname, lastname, email, company, job, phone,) {
         dashboardelement.elements.settingdropdown().click()
@@ -109,18 +130,18 @@ class adduser {
     deleteuser() {
         dashboardelement.elements.settingdropdown().click()
         dashboardelement.elements.adminuser().click()
-        cy.viewport(1366,768)
-       // cy.get('body').scrollTo('right',{ensureScrollable: false})
+        cy.viewport(1366, 768)
+        // cy.get('body').scrollTo('right',{ensureScrollable: false})
         cy.wait(2000)
-        cy.get('tbody tr').find('td').find('javid').then((into)=>{
-            const test= into.text()
+        cy.get('tbody tr').find('td').find('javid').then((into) => {
+            const test = into.text()
             cy.log(test)
         })
 
     }
 
 
-    mobileview(frstname, lastname, email, company, job, phone,text) {
+    mobileview(frstname, lastname, email, company, job, phone, text) {
         this.elements.mobiconclick().click()
         dashboardelement.elements.settingdropdown().click()
         dashboardelement.elements.adminuser().click()
@@ -139,9 +160,47 @@ class adduser {
         this.elements.copypsswrd().click()
         cy.wait(2000)
         cy.get('.p-3 > :nth-child(2)').eq(0).should('have.text', 'javid Ahmad')
-        
+
     }
 
+    threshhold() {
+
+        dashboardelement.elements.settingdropdown().should('be.visible').click()
+        cy.wait(3000)
+        cy.get('.ant-layout-sider').scrollTo('bottom', { ensureScrollable: false });
+        cy.pause()
+        dashboardelement.elements.influencer2().click()
+        cy.pause()
+        cy.wait(2000)
+        this.elements.instagram().type('200')
+        this.elements.facebook().type('300')
+        this.elements.Youtube().type('400')
+        this.elements.syncFrequency().type('500')
+    }
+
+
+    termsandconditions(){
+        dashboardelement.elements.settingdropdown().should('be.visible').click()
+        cy.wait(3000)
+        cy.get('.ant-layout-sider').scrollTo('bottom', { ensureScrollable: false });
+        dashboardelement.elements.Brands().click()
+    }
+
+    editprofile(fname,lname,company,job){
+        dashboardelement.elements.profileicon().trigger('mouseover');
+        dashboardelement.elements.profile().click()
+        cy.wait(3000)
+        cy.get('#email')
+        .invoke('val', 'your-email@example.com')
+        this.elements.editprofilefname().clear().type(fname)
+        this.elements.editprofilelname().clear().type(lname)
+        this.elements.editprofilecompanyname().clear().type(company)
+        this.elements.editprofilejob().clear().type(job)
+        this.elements.updateprofilebtn().click()
+        this.requiremsg.requriedfield1()
+        this.requiremsg.requiredfield2()
+        cy.wait(2000)
+    }
 
 }
 export default adduser;

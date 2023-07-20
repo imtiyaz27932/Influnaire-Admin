@@ -1,5 +1,6 @@
 import login from "../POM/admin login";
 import adduser from "../POM/settings";
+import dashboard from "../POM/settings"
 
 let repodata;
 
@@ -11,7 +12,7 @@ describe('Admin', () => {
         });
     });
 
-    it.only('Test that admin is able to add a user', () => {
+    it('Test that admin is able to add a user', () => {
 
         const log = new login();
         const add = new adduser();
@@ -32,7 +33,7 @@ describe('Admin', () => {
         add.settings2(repodata.firstnameforadduser, repodata.lastnameforadduser, repodata.Emaill, repodata.companyname, repodata.jobtitle, repodata.phone, repodata.Pwd);
     });
 
-    it.only('verify that if the user uses the same email address and it should give a validation message', () => {
+    it('verify that if the user uses the same email address and it should give a validation message', () => {
 
         const log = new login();
         const add = new adduser();
@@ -61,13 +62,39 @@ describe('Admin', () => {
 
     })
 
-    it.only('verify that user is able to add user, delete and edit user on mobile devices', () => {
+    it('verify that user is able to add user, delete and edit user on mobile devices', () => {
         cy.viewport('samsung-s10');
         const log = new login()
         const add = new adduser()
         log.logincredentials(repodata.Email, repodata.Password);
         cy.wait(6000);
         add.mobileview(repodata.firstnameforaddusermobile, repodata.lastnameforaddusermobile, repodata.Emaillmobile, repodata.companynamemobile, repodata.jobtitlemobile, repodata.phonemobile, repodata.Pwdmobile)
+    })
+
+    
+    it('Test that user is able to set threshold',()=>{
+        const log= new login()
+        const hero= new dashboard()
+        log.logincredentials(repodata.Email, repodata.Password)
+        hero.threshhold()
+    })
+
+
+    it('Test that user is able to set terms and conditions for creating campaign',()=>{
+        const log= new login()
+        const hero= new dashboard()
+        log.logincredentials(repodata.Email, repodata.Password)
+        hero.termsandconditions()
+    })
+
+    it('Test that brand is able to edit/update profile',()=>{
+        const log= new login()
+        const hero= new dashboard()
+        log.logincredentials(repodata.Email, repodata.Password)
+        cy.wait(2000)
+        hero.editprofile(repodata.editproffirstname,repodata.editprofilelname,repodata.editprofilecompname,repodata.editprofiletitle)
+        cy.wait(2000)
+        
     })
 
 })

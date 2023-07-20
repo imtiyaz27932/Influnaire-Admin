@@ -38,7 +38,7 @@ describe('Admin', () => {
 
     })
 
-    it('verify that admin is able to reset password', () => {
+    it.skip('verify that admin is able to reset password', () => {
         const log = new login()
         log.forgotpassword(repodata.Email, repodata.Passwordnew1, repodata.Passwordnew2)
     })

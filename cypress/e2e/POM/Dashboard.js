@@ -18,6 +18,8 @@ class dashboard {
         adminuser: () => cy.contains('Admin User'),
         payments: () => cy.contains('Payments'),
         Notifications: () => cy.contains('Notifications'),
+        influencer2: () => cy.contains('Influencer'),
+        Brands: () => cy.contains('Brands'),
 
 
 
@@ -39,6 +41,7 @@ class dashboard {
         profileicon: () => cy.get('.myReact-icons').eq(11),
         profilename: () => cy.get('[class="ant-typography cursor-pointer css-dev-only-do-not-override-i9o64j"]'),
         logout: () => cy.contains('Logout'),
+        profile:()=> cy.contains('Profile'),
         arabiclanguage: () => cy.get('.ant-dropdown-menu-title-content').eq(1),
         englishlanguage: () => cy.get('.ant-dropdown-menu-title-content').eq(0),
         //userclicksalreadyhaveanaccount: () => cy.get('a[href="/brand/login"]')
@@ -80,6 +83,8 @@ class dashboard {
         this.elements.adminuser().should('be.visible')
         this.elements.payments().should('be.visible')
         this.elements.Notifications().should('be.visible')
+        this.elements.influencer2().should('be.visible')
+        this.elements.Brands().should('be.visible')
 
 
 
@@ -110,6 +115,8 @@ class dashboard {
         this.elements.logout().click()
         cy.url().should('be.eq', 'https://app.influnaire.dreamkashmir.com/brand/login')
     }
+
+
 
 }
 export default dashboard;
